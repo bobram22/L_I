@@ -19,5 +19,6 @@ public class LeagueInvader {
 		f.setSize(width, height);
 		f.add(gp);
 		gp.startGame();
+		f.addKeyListener(gp);
 	}
 }
