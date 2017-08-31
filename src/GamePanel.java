@@ -110,6 +110,9 @@ else if(e.getKeyCode()==KeyEvent.VK_UP){
 else if(e.getKeyCode()==KeyEvent.VK_DOWN){
 	ship.ospeed=-5;
 }
+else if (e.getKeyCode()==KeyEvent.VK_SPACE){
+	om.addObject(new Projectiles(ship.x+ship.width/2, ship.y, 10, 10));
+}
 }
 @Override
 public void keyReleased(KeyEvent e) {

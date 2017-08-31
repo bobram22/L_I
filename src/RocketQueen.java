@@ -9,7 +9,7 @@ public class RocketQueen extends GameObject {
 		y-=ospeed;
 	}
 		void draw(Graphics g){
-			g.setColor(Color.blue);
+			g.setColor(Color.BLUE);
 			g.fillRect(x, y, width, height);
 		}
 	

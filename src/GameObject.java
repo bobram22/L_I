@@ -5,7 +5,7 @@ public class GameObject {
 	int y;
 	int width;
 	int height;
-	boolean isAlive;
+	boolean isAlive= true;
 	void update(){
 
 }
