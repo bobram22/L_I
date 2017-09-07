@@ -5,6 +5,7 @@ public class RocketQueen extends GameObject {
 	int speed;
 	int ospeed;
 	void update(){
+		super.update();
 		x-=speed;
 		y-=ospeed;
 	}
@@ -14,6 +15,7 @@ public class RocketQueen extends GameObject {
 		}
 	
 	RocketQueen(int x, int y, int w, int h){
+		super(x,y,w,h);
 		this.height= h;
 		this.width=w;
 		this.x=x;

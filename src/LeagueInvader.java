@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 public class LeagueInvader {
 	GamePanel gp;
 	JFrame f;
-	int width=500;
+	static int width=500;
 	int height=800;
 	public static void main(String[] args) {
 	LeagueInvader li = new LeagueInvader();

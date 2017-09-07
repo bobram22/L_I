@@ -18,6 +18,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font titleFont;
 	RocketQueen ship;
 	ObjectManager om;
+	private int score;
 GamePanel(){
 	t = new Timer(1000/60, this);
 	titleFont = new Font("Times New Roman",Font.BOLD,48);
@@ -44,6 +45,15 @@ GamePanel(){
 	}
 	void updategs(){
 		om.update();
+		om.manageEnemies();
+		om.checkCollision();
+		if(ship.isAlive == false){
+			currentState=END_STATE;
+			 score =	om.getScore();
+			om.reset();
+			ship = new RocketQueen(250,700,50,50);
+			om.addObject(ship);
+		}
 	}
 	void updatees(){
 		
@@ -68,6 +78,7 @@ GamePanel(){
 	g.setFont(titleFont);
 	g.drawString("Game", 190, 100);
 	g.drawString("Over :'(", 190, 135);
+	g.drawString("Score: " + score, 190, 185);
 	}
 	void startGame(){
 		t.start();
