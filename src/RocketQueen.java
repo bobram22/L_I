@@ -10,8 +10,8 @@ public class RocketQueen extends GameObject {
 		y-=ospeed;
 	}
 		void draw(Graphics g){
-			g.setColor(Color.BLUE);
-			g.fillRect(x, y, width, height);
+			g.drawImage(GamePanel.rocketImg, x, y, width, height, null);
+
 		}
 	
 	RocketQueen(int x, int y, int w, int h){

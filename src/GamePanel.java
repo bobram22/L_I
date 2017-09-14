@@ -5,7 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -19,12 +22,27 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	RocketQueen ship;
 	ObjectManager om;
 	private int score;
+	public static BufferedImage alienImg;
+	public static BufferedImage rocketImg;
+	public static BufferedImage bulletImg;
+	public static BufferedImage spaceImg;
+
 GamePanel(){
 	t = new Timer(1000/60, this);
 	titleFont = new Font("Times New Roman",Font.BOLD,48);
 	ship = new RocketQueen(250,700,50,50);
 	om = new ObjectManager();
 	om.addObject(ship);
+	try {
+		alienImg = ImageIO.read(this.getClass().getResourceAsStream("alien.png"));
+		rocketImg = ImageIO.read(this.getClass().getResourceAsStream("rocket.png"));
+		bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
+		spaceImg = ImageIO.read(this.getClass().getResourceAsStream("space.png"));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
 }
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -53,6 +71,7 @@ GamePanel(){
 			om.reset();
 			ship = new RocketQueen(250,700,50,50);
 			om.addObject(ship);
+			om.setScore(0);
 		}
 	}
 	void updatees(){
@@ -67,8 +86,7 @@ GamePanel(){
 		g.drawString("Invaders", 190, 135);
 	}
 	void drawgs(Graphics g){
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, 1000, 1000);
+		g.drawImage(GamePanel.spaceImg, 0, 0, 1000, 1000, null);
 		om.draw(g);
 	}
 	void drawes(Graphics g){

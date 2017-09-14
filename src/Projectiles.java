@@ -11,8 +11,8 @@ public class Projectiles extends GameObject{
 		}
 	}
 		void draw(Graphics g){
-			g.setColor(Color.red);
-			g.fillRect(x, y, width, height);
+			g.drawImage(GamePanel.bulletImg, x, y, width, height, null);
+
 		}
 Projectiles(int x,int y,int w,int h){
 	super(x,y,w,h);

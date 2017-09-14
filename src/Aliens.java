@@ -8,8 +8,8 @@ public class Aliens extends GameObject {
 		super.update();
 		y+=speed;}
 	void draw(Graphics g){
-		g.setColor(Color.yellow);
-		g.fillRect(x, y, width, height);
+		g.drawImage(GamePanel.alienImg, x, y, width, height, null);
+
 	}
 	
 	Aliens(int x, int y, int w, int h){
